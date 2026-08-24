@@ -2,7 +2,7 @@
 
 An enterprise-grade Retrieval-Augmented Generation (RAG) HR assistant, evaluated against a 20-question golden dataset with an independent judge model — documenting real failure modes, bottleneck distributions, and the engineering decisions behind a faithfulness score of **0.911**.
 
-📹 **[DEMO VIDEO LINK — add manually]**
+📹 **[DEMO VIDEO]**
 
 https://github.com/user-attachments/assets/a4c9d4e0-f147-4553-ac4e-f95650b75ba9
 
