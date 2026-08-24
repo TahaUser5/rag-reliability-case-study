@@ -4,6 +4,8 @@ An enterprise-grade Retrieval-Augmented Generation (RAG) HR assistant, evaluated
 
 📹 **[DEMO VIDEO LINK — add manually]**
 
+https://github.com/user-attachments/assets/a4c9d4e0-f147-4553-ac4e-f95650b75ba9
+
 ---
 
 ## Contents
