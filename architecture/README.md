@@ -2,6 +2,8 @@
 
 This folder holds the system architecture diagram for the RAG pipeline.
 
+![RAG Architecture Diagram](./architecture.svg)
+
 ## Contents
 
 - **`architecture.svg`** — Vector version of the diagram (renders natively in GitHub markdown, stays crisp at any zoom)
@@ -20,4 +22,4 @@ The diagram illustrates the full request and ingestion flow across the Dockerize
 7. **External AI Services** — Groq as the LLM provider, plus the embedding model
 8. **Evaluation & Deployment** — RAGAS evaluation pipeline (faithfulness, context recall, context precision, answer relevancy, abstention rate) and Docker containerization
 
-The diagram is referenced in the main [README.md](../README.md) and [CASE_STUDY.md](../CASE_STUDY.md).
+Referenced in the main [README.md](../README.md) and [CASE_STUDY.md](../CASE_STUDY.md).
