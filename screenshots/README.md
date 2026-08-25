@@ -1,9 +1,13 @@
 # screenshots/
 
-This folder is intended to hold UI screenshots and demo assets for the RAG assistant.
+UI screenshots of the RAG HR assistant chat interface.
 
-## What to add manually
+![Chat Interface](./UI.png)
 
-- **UI screenshots** — Screenshots of the chat interface, showing example interactions (use anonymised or non-proprietary example questions only)
-- **Demo video thumbnail** — A still frame or custom thumbnail for the demo video linked in README.md
-- **Demo video** — If hosting locally rather than via an external link, place the video file here and update the `[DEMO VIDEO LINK]` in `README.md` to point to it
+## Contents
+
+- **`UI.png`** — <one-line description of what this screenshot actually shows>
+
+All example interactions shown use non-proprietary, illustrative HR policy questions.
+
+Demo video: see the main [README.md](../README.md).
