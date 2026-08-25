@@ -1,16 +1,23 @@
 # architecture/
 
-This folder is intended to hold the system architecture diagram for the RAG pipeline.
+This folder holds the system architecture diagram for the RAG pipeline.
 
-## What to add manually
+## Contents
 
-- **`architecture-diagram.png`** — Export the architecture diagram from your diagramming tool (Excalidraw, draw.io, Miro, Lucidchart, etc.)
+- **`architecture.svg`** — Vector version of the diagram (renders natively in GitHub markdown, stays crisp at any zoom)
+- **`architecture.png`** — Raster fallback for viewers that don't render SVG
 
-> **Note:** The original architecture diagram is located in the private repository at `docs/architecture.png`. Export or recreate it before adding here. Do not copy the file directly from the private repo if it contains any proprietary annotations.
+## What the diagram shows
 
-A good architecture diagram for this system should show:
-1. Document ingestion and chunking stage
-2. Hybrid retrieval (dense + sparse paths, merging strategy)
-3. Reranking stage
-4. LLM generation stage
-5. Evaluation loop (RAGAS + judge model) as a separate, connected process
+The diagram illustrates the full request and ingestion flow across the Dockerized application stack:
+
+1. **Frontend (Streamlit — Cognit)** — Chat interface and RAGAS evaluation dashboard
+2. **Backend (FastAPI)** — API gateway and query handling
+3. **Orchestration (LangChain)** — Query transformation, context building, and answer generation
+4. **Hybrid Retrieval** — Parallel BM25 keyword search and dense vector search, merged and reranked via Cohere
+5. **Knowledge Base (Pinecone)** — Dense vector and metadata storage
+6. **Ingestion Pipeline** — Document loading and chunking, feeding the vector store
+7. **External AI Services** — Groq as the LLM provider, plus the embedding model
+8. **Evaluation & Deployment** — RAGAS evaluation pipeline (faithfulness, context recall, context precision, answer relevancy, abstention rate) and Docker containerization
+
+The diagram is referenced in the main [README.md](../README.md) and [CASE_STUDY.md](../CASE_STUDY.md).
