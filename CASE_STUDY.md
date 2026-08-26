@@ -128,5 +128,11 @@ This case study is representative of consulting and freelance engagements includ
 - Honest failure analysis and trade-off documentation
 
 ---
+> **Judge:** `openai/gpt-oss-120b` (accessed via Groq)  
+> **Generator:** `llama-3.1-8b-instant` (accessed via Groq)
+
+> **Note:** Groq deprecated `llama-3.1-8b-instant` in June 2026, after this evaluation was run, recommending migration to `openai/gpt-oss-20b`. The results below reflect the generator available at the time of the study; the evaluation methodology, failure taxonomy, and diagnostic findings are generator-agnostic and would apply to a re-run on the current model.
+
+---
 
 *Source: Internal project retrospective. No proprietary document content, raw prompts, API keys, or pipeline source code is included in this repository.*
