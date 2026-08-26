@@ -2,7 +2,7 @@
 
 ## System Overview
 
-This project is an enterprise-grade Retrieval-Augmented Generation (RAG) knowledge base designed to function as an HR policy assistant. The system ingests internal company policy documents and answers employee questions by retrieving the most relevant information before generating a response. It is designed to be highly factual, resistant to hallucinations, and capable of correctly abstaining when an answer is not present in the provided documents.
+This project is a production-grade Retrieval-Augmented Generation (RAG) knowledge base designed to function as an HR policy assistant. The system ingests internal company policy documents and answers employee questions by retrieving the most relevant information before generating a response. It is designed to be highly factual, resistant to hallucinations, and capable of correctly abstaining when an answer is not present in the provided documents.
 
 The pipeline architecture centres on three core stages:
 
@@ -45,12 +45,19 @@ A critical methodological decision was the use of a **separate, high-capability 
 |---|---|
 | **Mean Faithfulness** | **0.911** *(18 computable questions)* |
 | Answer Relevancy | 0.660 |
+| Answer Relevancy (Answerable) | 0.733 |
 | Context Precision | 0.821 |
 | Context Recall | 0.850 |
 | Context Recall (Answerable) | 0.895 |
 | Abstention Rate | 10% (2 / 20 questions) |
 
-> **Note on NaN Faithfulness (Q10 & Q11):** Two questions returned `NaN` faithfulness. Post-hoc log analysis confirmed this was caused by an HTTP 400 `json_validate_failed` error from the judge model when forced to decompose unusually long, multi-bulleted answers into a structured JSON claim schema in a single attempt. This is a **metric-infrastructure failure**, not a hallucination event. The mean of 0.911 is computed across the 18 questions where the metric was computable.
+### Metric Artifacts and How They're Reported
+
+Two metric-level artifacts surfaced during evaluation. Both are reported transparently below rather than excluded silently.
+
+> **NaN Faithfulness (Q10 & Q11):** Two questions returned `NaN` faithfulness. Post-hoc log analysis confirmed this was caused by an HTTP 400 `json_validate_failed` error from the judge model when forced to decompose unusually long, multi-bulleted answers into a structured JSON claim schema in a single attempt. This is a **metric-infrastructure failure**, not a hallucination event. The mean of 0.911 is computed across the 18 questions where the metric was computable.
+
+> **Answer Relevancy on intentional abstentions (Q0 & Q15):** The overall Answer Relevancy score of 0.660 includes two questions where the system correctly abstained because the requested information was not present in the source document. RAGAS computes Answer Relevancy by using the generated answer to reconstruct a plausible question and comparing it to the original; an intentional refusal provides little semantic content for that reconstruction, producing a 0.0 score regardless of whether abstaining was the right call. Excluding these two questions, Answer Relevancy (Answerable) across the 18 questions where an answer was expected is **0.733**. The metric is not well-suited to intentional abstention responses in this evaluation setup — both scores are reported rather than the lower one omitted.
 
 ### Bottleneck Distribution
 
