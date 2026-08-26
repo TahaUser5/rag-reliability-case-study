@@ -1,5 +1,5 @@
 # RAG Reliability Case Study
-An enterprise-grade Retrieval-Augmented Generation (RAG) HR assistant, evaluated against a 20-question golden dataset with an independent judge model — documenting real failure modes, bottleneck distributions, and the engineering decisions behind a faithfulness score of **0.911**.
+An production-style Retrieval-Augmented Generation (RAG) HR assistant, evaluated against a 20-question golden dataset with an independent judge model — documenting real failure modes, bottleneck distributions, and the engineering decisions behind a faithfulness score of **0.911**.
 
 📹 **[DEMO VIDEO]**
 
